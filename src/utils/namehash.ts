@@ -4,16 +4,16 @@ import { Version }          from '../base';
 const sha3     = require('js-sha3').keccak_256;
 const namehash = require('@ensdomains/eth-ens-namehash');
 
-const eth0x =
-  '4f5b812789fc606be1b3b16908db13fc7a9adf7ca72641f84d75b47069d3d7f0';
+const dao0x =
+  '8510acf858a6208b10ca6a42b601609d333cd69cb8f62bc06998b9ca193225be';
 
-export function constructEthNameHash(tokenId: string, version: Version): string {
+export function constructDaoNameHash(tokenId: string, version: Version): string {
   if (version > Version.v1) return tokenId;
 
   const label0x = utils
     .hexZeroPad(utils.hexlify(BigNumber.from(tokenId)), 32)
     .replace('0x', '');
-  const labels = [label0x, eth0x];
+  const labels = [label0x, dao0x];
 
   // 0 x 64
   let node = '0000000000000000000000000000000000000000000000000000000000000000';

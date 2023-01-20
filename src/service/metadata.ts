@@ -65,11 +65,11 @@ export class Metadata {
       ? name
       : tokenId.replace(
           new RegExp('^(.{0,6}).*(.{4})$', 'im'),
-          '[$1...$2].eth'
+          '[$1...$2].dao'
         );
     this.description =
       description ||
-      `${this.name}, an ENS name.${
+      `${this.name}, an DNS name.${
         !this.is_normalized ? ` (${name} is not in normalized form)` : ''
       }`;
     if (!is_valid || !isASCII(label)) {
@@ -205,7 +205,7 @@ https://en.wikipedia.org/wiki/IDN_homograph_attack';
       name.substring(0, Metadata.MAX_CHAR - 7) +
       '...' +
       name.substring(_nameLength - 7, _nameLength - 4) +
-      '.eth'
+      '.dao'
     );
   }
 

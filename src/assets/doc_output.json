@@ -2,20 +2,20 @@
   "openapi": "3.0.0",
   "info": {
     "version": "0.0.1-alpha.1",
-    "title": "ENS Metadata Service",
-    "description": "Set of endpoints to query ENS metadata and more",
-    "contact": "contact@ens.domains",
+    "title": "DNS Metadata Service",
+    "description": "Set of endpoints to query DNS metadata and more",
+    "contact": "contact@dns.domains",
     "license": "MIT License",
     "x-logo": {
       "url": "/assets/logo.svg",
       "backgroundColor": "#FFFFFF",
-      "altText": "Ethereum Name Service"
+      "altText": "Decentralized Autonomous Organization Name Service"
     }
   },
   "paths": {
     "/{networkName}/{contractAddress(0x[a-fA-F0-9]{40})}/{tokenId}": {
       "get": {
-        "description": "ENS NFT metadata",
+        "description": "DNS NFT metadata",
         "parameters": [
           {
             "name": "networkName",
@@ -41,7 +41,7 @@
               "$ref": "#/components/schemas/tokenId"
             },
             "type": "string",
-            "description": "Labelhash(v1) /Namehash(v2) of your ENS name.\n\nMore: https://docs.ens.domains/contract-api-reference/name-processing#hashing-names"
+            "description": "Labelhash(v1) /Namehash(v2) of your DNS name.\n\nMore: https://docs.dns.domains/contract-api-reference/name-processing#hashing-names"
           }
         ],
         "responses": {
@@ -50,12 +50,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ENSMetadata"
+                  "$ref": "#/components/schemas/DNSMetadata"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/ENSMetadata"
+                  "$ref": "#/components/schemas/DNSMetadata"
                 }
               }
             }
@@ -74,7 +74,7 @@
     },
     "/{networkName}/{contractAddress(0x[a-fA-F0-9]{40})}/{tokenId}/image": {
       "get": {
-        "description": "ENS NFT image",
+        "description": "DNS NFT image",
         "parameters": [
           {
             "name": "networkName",
@@ -100,7 +100,7 @@
               "$ref": "#/components/schemas/tokenId"
             },
             "type": "string",
-            "description": "Labelhash(v1) /Namehash(v2) of your ENS name.\n\nMore: https://docs.ens.domains/contract-api-reference/name-processing#hashing-names"
+            "description": "Labelhash(v1) /Namehash(v2) of your DNS name.\n\nMore: https://docs.dns.domains/contract-api-reference/name-processing#hashing-names"
           }
         ],
         "responses": {
@@ -118,7 +118,7 @@
     },
     "/{networkName}/{contractAddress(0x[a-fA-F0-9]{40})}/{tokenId}/rasterize": {
       "get": {
-        "description": "ENS NFT image rasterization",
+        "description": "DNS NFT image rasterization",
         "parameters": [
           {
             "name": "networkName",
@@ -144,7 +144,7 @@
               "$ref": "#/components/schemas/tokenId"
             },
             "type": "string",
-            "description": "Labelhash(v1) /Namehash(v2) of your ENS name.\n\nMore: https://docs.ens.domains/contract-api-reference/name-processing#hashing-names"
+            "description": "Labelhash(v1) /Namehash(v2) of your DNS name.\n\nMore: https://docs.dns.domains/contract-api-reference/name-processing#hashing-names"
           }
         ],
         "responses": {
@@ -162,7 +162,7 @@
     },
     "/{networkName}/avatar/{name}/meta": {
       "get": {
-        "description": "ENS avatar metadata",
+        "description": "DNS avatar metadata",
         "parameters": [
           {
             "name": "networkName",
@@ -177,9 +177,9 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/ensName"
+              "$ref": "#/components/schemas/dnsName"
             },
-            "description": "ENS name"
+            "description": "DNS name"
           }
         ],
         "responses": {
@@ -209,7 +209,7 @@
     },
     "/{networkName}/avatar/{name}": {
       "get": {
-        "description": "ENS avatar image",
+        "description": "DNS avatar image",
         "parameters": [
           {
             "name": "networkName",
@@ -224,9 +224,9 @@
             "in": "path",
             "required": true,
             "schema": {
-              "$ref": "#/components/schemas/ensName"
+              "$ref": "#/components/schemas/dnsName"
             },
-            "description": "ENS name"
+            "description": "DNS name"
           }
         ],
         "responses": {
@@ -270,7 +270,7 @@
     "examples": {
       "AvatarMetadata": {
         "value": {
-          "$uri": "matoken.eth",
+          "$uri": "matoken.dao",
           "is_owner": true,
           "host_meta": {
             "chain_id": 1,
@@ -298,10 +298,10 @@
           "image": "https://ipfs.io/ipfs/QmRagxjj2No4T8gNCjpM42mLZGQE3ZwMYdTFUYe6e6LMBG"
         }
       },
-      "ENSMetadata": {
+      "DNSMetadata": {
         "value": {
-          "$name": "nick.eth",
-          "$description": "nick.eth, an ENS name.",
+          "$name": "nick.dao",
+          "$description": "nick.dao, an DNS name.",
           "$attributes": [
             {
               "trait_type": "Created Date",
@@ -325,10 +325,10 @@
             }
           ],
           "name_length": 4,
-          "url": "https://app.ens.domains/name/nick.eth",
+          "url": "https://app.dns.domains/name/nick.dao",
           "version": 0,
-          "background_image": "https://metadata.ens.domains/mainnet/avatar/nick.eth",
-          "image_url": "https://metadata.ens.domains/mainnet/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85/0x5d5727cb0fb76e4944eafb88ec9a3cf0b3c9025a4b2f947729137c5d7f84f68f/image"
+          "background_image": "https://metadata.dns.domains/mainnet/avatar/nick.dao",
+          "image_url": "https://metadata.dns.domains/mainnet/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85/0x5d5727cb0fb76e4944eafb88ec9a3cf0b3c9025a4b2f947729137c5d7f84f68f/image"
         }
       }
     },
@@ -338,7 +338,7 @@
         "properties": {
           "uri": {
             "type": "string",
-            "example": "ENS name of avatar holder"
+            "example": "DNS name of avatar holder"
           },
           "is_owner": {
             "type": "string",
@@ -413,32 +413,32 @@
           "name": "AvatarMetadata"
         }
       },
-      "ENSMetadata": {
+      "DNSMetadata": {
         "type": "object",
         "properties": {
           "name": {
             "type": "string",
-            "example": "ENS name"
+            "example": "DNS name"
           },
           "description": {
             "type": "string",
-            "example": "Short ENS name description"
+            "example": "Short DNS name description"
           },
           "attributes": {
             "type": "string",
-            "example": "Custom traits about ENS"
+            "example": "Custom traits about DNS"
           },
           "name_length": {
             "type": "string",
-            "example": "Character length of ens name"
+            "example": "Character length of dns name"
           },
           "url": {
             "type": "string",
-            "example": "ENS App URL of the name"
+            "example": "DNS App URL of the name"
           },
           "version": {
             "type": "string",
-            "example": "ENS NFT version"
+            "example": "DNS NFT version"
           },
           "background_image": {
             "type": "string",
@@ -446,7 +446,7 @@
           },
           "image_url": {
             "type": "string",
-            "example": "URL of ENS NFT image"
+            "example": "URL of DNS NFT image"
           }
         },
         "required": [
@@ -460,7 +460,7 @@
           "image_url"
         ],
         "xml": {
-          "name": "ENSMetadata"
+          "name": "DNSMetadata"
         }
       },
       "contractAddress": {
@@ -470,11 +470,11 @@
           "name": "contractAddress"
         }
       },
-      "ensName": {
+      "dnsName": {
         "type": "string",
-        "example": "nick.eth",
+        "example": "nick.dao",
         "xml": {
-          "name": "ensName"
+          "name": "dnsName"
         }
       },
       "tokenId": {

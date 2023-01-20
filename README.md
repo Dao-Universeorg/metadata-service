@@ -28,8 +28,8 @@ https://metadata.dns.domains/mainnet/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85/
 
 ```json
 {
-  "name": "nick.eth",
-  "description": "nick.eth, an DNS name.",
+  "name": "nick.dao",
+  "description": "nick.dao, an DNS name.",
   "attributes": [
     {
       "trait_type": "Created Date",
@@ -50,9 +50,9 @@ https://metadata.dns.domains/mainnet/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85/
   "name_length": 4,
   "short_name": null,
   "length": 0,
-  "url": "https://app.dns.domains/name/nick.eth",
+  "url": "https://app.dns.domains/name/nick.dao",
   "version": 0,
-  "background_image": "https://metadata.dns.domains/mainnet/avatar/nick.eth",
+  "background_image": "https://metadata.dns.domains/mainnet/avatar/nick.dao",
   "image_url": "https://metadata.dns.domains/mainnet/0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85/0x5d5727cb0fb76e4944eafb88ec9a3cf0b3c9025a4b2f947729137c5d7f84f68f/image"
 }
 
@@ -99,8 +99,8 @@ yarn test:cov
 | HOST | Host (ip/domain) address of the running service | localhost | - | No |
 | ENV | Project scope | local | local/prod |
 | INAMEWRAPPER | InterfaceId of NameWrapper Contract | 0xe89c48dc | - |
-| ADDRESS_ETH_REGISTRAR | Ethereum address of DNSBaseRegistrar Contract | 0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85 | - |
-| ADDRESS_NAME_WRAPPER | Ethereum address of NameWrapper Contract | 0x582224b8d4534F4749EFA4f22eF7241E0C56D4B8 | - |
+| ADDRESS_ETH_REGISTRAR | Ethereum address of DNSBaseRegistrar Contract | 0x7bD1d65640e9Ee51b06a8Ee55b2Ea601704F76E5 | - |
+| ADDRESS_NAME_WRAPPER | Ethereum address of NameWrapper Contract | 0x396bBd3D9Ff5910f1d192b04F79Ae8f4cD593648 | - |
 
 
 <!-- MARKDOWN LINKS & IMAGES -->

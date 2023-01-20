@@ -15,8 +15,8 @@ import {
 } from '../base';
 import { getNamehash } from '../utils/namehash';
 
-const eth =
-  '0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae';
+const dao =
+  '0xb5f2bbf81da581299d4ff7af60560c0ac854196f5227328d2d0c2bb0df33e553';
 const GRACE_PERIOD_MS = 7776000000; // 90 days as milliseconds
 
 export async function getDomain(
@@ -101,7 +101,7 @@ export async function getDomain(
   }
 
   async function requestAttributes() {
-    if (parent.id === eth) {
+    if (parent.id === dao) {
       const { registrations } = await request(SUBGRAPH_URL, GET_REGISTRATIONS, {
         labelhash,
       });

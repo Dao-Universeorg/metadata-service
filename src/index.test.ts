@@ -30,18 +30,18 @@ const NON_CONTRACT_ADDRESS = '0xAb5801a7D398351b8bE11C439e05C5B3259aeC9B';
 /* Mocks */
 
 const wrappertest3 = new MockEntry({
-  name: 'wrappertest3.eth',
+  name: 'wrappertest3.dao',
   registration: true,
   resolver: { texts: null },
   persist: true,
 });
 const sub1Wrappertest = new MockEntry({
-  name: 'sub1.wrappertest.eth',
+  name: 'sub1.wrappertest.dao',
   parent: '0x2517c0dfe3a4eebac3456a409c53f824f86070c73d48794d8268ec5c007ee683',
   resolver: { texts: null },
 });
 const sub2Wrappertest9 = new MockEntry({
-  name: 'sub2.wrappertest9.eth',
+  name: 'sub2.wrappertest9.dao',
   image: 'https://i.imgur.com/JcZESMp.png',
   parent: '0x0b00a980e17bfb715fca7267b401b08daa6e750f1bdac52b273e11c46c3e2b9f',
   resolver: { texts: ['avatar'] },
@@ -53,21 +53,21 @@ const unknown = new MockEntry({
   registered: false,
 });
 const unknownRegistered = new MockEntry({
-  name: 'something.eth',
+  name: 'something.dao',
   unknown: true,
 });
 const handle21character = new MockEntry({
-  name: 'handle21character.eth',
+  name: 'handle21character.dao',
   registration: true,
   resolver: { texts: null },
 });
 const supercalifragilisticexpialidocious = new MockEntry({
-  name: 'supercalifragilisticexpialidocious.eth',
+  name: 'supercalifragilisticexpialidocious.dao',
   registration: true,
   resolver: { texts: null },
 });
 const longsubdomainconsistof34charactersMdt = new MockEntry({
-  name: 'longsubdomainconsistof34characters.mdt.eth',
+  name: 'longsubdomainconsistof34characters.mdt.dao',
   registration: true,
   resolver: { texts: null },
 });
@@ -139,7 +139,7 @@ test.before(async (t: ExecutionContext<TestContext>) => {
     }
   );
 
-  // something.eth recordExist true
+  // something.dao recordExist true
   nockProvider(
     WEB3_URL,
     'eth_call',
@@ -191,7 +191,7 @@ test('get welcome message', async (t: ExecutionContext<TestContext>) => {
   t.deepEqual(result, 'Well done mate To see more go to "/docs"!');
 });
 
-test('get /:contractAddress/:tokenId for domain (wrappertest3.eth)', async (t: ExecutionContext<TestContext>) => {
+test('get /:contractAddress/:tokenId for domain (wrappertest3.dao)', async (t: ExecutionContext<TestContext>) => {
   const result = await got(
     `goerli/${NAME_WRAPPER_ADDRESS}/${wrappertest3.namehash}`,
     options
@@ -422,7 +422,7 @@ test('raise ContractMismatchError', async (t: ExecutionContext<TestContext>) => 
   const { message } = JSON.parse(body as string);
   t.assert(
     message ===
-      `${NON_CONTRACT_ADDRESS} does not match with any ENS related contract`
+      `${NON_CONTRACT_ADDRESS} does not match with any DNS related contract`
   );
 });
 

@@ -60,7 +60,7 @@ test.before(async (t: ExecutionContext<TestContext>) => {
     }
   );
 
-  // fake vitalik.eth with nullifier
+  // fake vitalik.dao with nullifier
   nock(SUBGRAPH_URL.origin)
     .post(SUBGRAPH_URL.pathname, {
       query: GET_DOMAINS_BY_LABELHASH,
@@ -77,7 +77,7 @@ test.before(async (t: ExecutionContext<TestContext>) => {
             id: '0xa4290dde50b30e173c50253d179727e9dc1ef34a81cc346cfda9431e45035e6a',
             labelhash:
               '0x3581397a478dcebdc1ee778deed625697f624c6f7dbed8bb7f780a6ac094b772',
-            name: 'vitalik.eth',
+            name: 'vitalik.dao',
             createdAt: '1673268731',
             parent: {
               id: '0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae',
@@ -88,7 +88,7 @@ test.before(async (t: ExecutionContext<TestContext>) => {
       },
     });
 
-  // original vitalik.eth
+  // original vitalik.dao
   nock(SUBGRAPH_URL.origin)
     .post(SUBGRAPH_URL.pathname, {
       query: GET_DOMAINS_BY_LABELHASH,
@@ -105,7 +105,7 @@ test.before(async (t: ExecutionContext<TestContext>) => {
             id: '0xee6c4522aab0003e8d14cd40a6af439055fd2577951148c14b6cea9a53475835',
             labelhash:
               '0xaf2caa1c2ca1d027f1ac823b529d0a67cd144264b2789fa2ea4d63a67c7103cc',
-            name: 'vitalik.eth',
+            name: 'vitalik.dao',
             createdAt: '1497775154',
             parent: {
               id: '0x93cdeb708b7545dc668eb9280176169d1c33cfd8ed6f04690a0bcc88a93fc4ae',
@@ -166,7 +166,7 @@ test('should raise an error if namehash of the name is not match with subgraph',
   )) as NamehashMismatchError;
   t.is(
     error.message,
-    'TokenID of the query does not match with namehash of vitalik.eth'
+    'TokenID of the query does not match with namehash of vitalik.dao'
   );
   t.is(error.code, 404);
 });
@@ -186,5 +186,5 @@ test('should return successfully if namehash is matches with subgraph', async (t
     Version.v1,
     false
   );
-  t.is(domain.name, 'vitalik.eth');
+  t.is(domain.name, 'vitalik.dao');
 });
